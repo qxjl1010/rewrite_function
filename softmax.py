@@ -9,17 +9,21 @@
 
 import math
 
-input_vec = [2,3,4]
-output_vec = []
 
-sum = 0
+def softmax(input_vec):
+    output_vec = []
 
-max_v = max(input_vec)
+    sum = 0
 
-for i in input_vec:
-    sum += math.exp(i-max_v)
+    max_v = max(input_vec)
 
-for i in input_vec:
-    output_vec.append(math.exp(i-max_v)/sum)
+    for i in input_vec:
+        sum += math.exp(i-max_v)
 
-print(output_vec)
+    for i in input_vec:
+        output_vec.append(math.exp(i-max_v)/sum)
+
+    return output_vec
+
+if __name__ == '__main__':
+    print(softmax([2,3,4]))
